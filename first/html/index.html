@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+<button onclick="httpGet()">Get</button>
+<button onclick="httpPost()">Post</button>
+<script>
+	document.getElementById("demo").innerHTML = "Hello JavaScript!";
+	
+	function httpGet()
+	{
+    	var xmlHttp = new XMLHttpRequest();
+    	xmlHttp.open( "GET", '/riko', false ); // false for synchronous request
+    	xmlHttp.send( null );
+    	return xmlHttp.responseText;
+	}
+	function httpPost()
+	{
+		var sendText = "Hello Riko";
+		var xmlHttp = new XMLHttpRequest();
+    	xmlHttp.open( "POST", '/riko', false); // false for synchronous request
+    	xmlHttp.send( sendText );
+	}
+</script> 
+
+</body>
+</html>
