@@ -8,7 +8,7 @@
 <button onclick="httpPost()">Post</button>
 <script>
 	document.getElementById("demo").innerHTML = "Hello JavaScript!";
-	
+	var responseText;
 	function httpGet()
 	{
     	var xmlHttp = new XMLHttpRequest();
@@ -20,7 +20,13 @@
 	{
 		var sendText = document.getElementById("inputFrame").value;
 		var xmlHttp = new XMLHttpRequest();
-    	xmlHttp.open( "POST", '/riko', false); // false for synchronous request
+    	xmlHttp.open( "POST", '/frame', false); // false for synchronous request
+		xmlHttp.onreadystatechange = function() {
+		  if (xmlHttp.readyState === 4)  { 
+		     responseText = xmlHttp.responseText;
+		     console.log(responseText);
+		  }
+		};
     	xmlHttp.send( sendText );
 	}
 </script> 
