@@ -8,6 +8,19 @@ var server = {};
 var htmlFile = "";
 
 
+function createObject(frameObject)
+{
+	return Object.create(frameObject);
+}
+
+var frame = 
+{
+	rawStr: "",
+	raw: []
+}
+
+var myFrame = createObject(frame);
+
 fs.readFile('../html/index.html', function(err, data){
 	if(err){
 		trow.err;
@@ -39,9 +52,17 @@ function handleRequestCB(request, response)
 	if (request.method === 'POST' && request.url === '/riko') 
 	{
 		console.log('The POST request is as expected:' + request.data);
-		request.on('data', function(data){console.log(data);})
+		request.on('data', handleHttpPostData)
 	}
-	setTimeout(()=>{doResponse(response);}, 2000);
+	doResponse(response);
+	// setTimeout(doResponse, 2, response);
+}
+
+function handleHttpPostData(data)
+{
+	console.log(data.toString());
+	myFrame.rawStr = data.toString();
+	console.log(myFrame.rawStr);
 }
 
 function doResponse(response)

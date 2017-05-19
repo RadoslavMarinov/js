@@ -3,6 +3,7 @@
 <body>
 
 <p id="demo"></p>
+<input type="text" id="inputFrame" value="">
 <button onclick="httpGet()">Get</button>
 <button onclick="httpPost()">Post</button>
 <script>
@@ -17,12 +18,11 @@
 	}
 	function httpPost()
 	{
-		var sendText = "Hello Riko";
+		var sendText = document.getElementById("inputFrame").value;
 		var xmlHttp = new XMLHttpRequest();
     	xmlHttp.open( "POST", '/riko', false); // false for synchronous request
     	xmlHttp.send( sendText );
 	}
 </script> 
-
 </body>
 </html>
