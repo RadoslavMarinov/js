@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+<p id="demo"/>
+<h2 id="header2">Hello</h2>
+<button id="ajaxButton" onclick="makeRequest()">Make a request!</button>
+<script>
+	var httpRequest;
+
+	function makeRequest(){
+		httpRequest = new XMLHttpRequest();
+		httpRequest.onreadystatechange = function(){
+			if(httpRequest.readyState === 4 ){
+				document.getElementById("header2").innerHTML = httpRequest.responseText;
+			}
+		}
+		httpRequest.open("GET", "http://127.0.0.1/text", true);
+		httpRequest.send();
+	}
+</script></body>
+</html>

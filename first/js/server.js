@@ -66,10 +66,11 @@ function handleRequestCB(request, response)
 {
 	console.log(request.url);
 	myResponse.data = htmlFile;
-	if (request.method === 'GET' && request.url === '/riko') 
+	if (request.method === 'GET' && request.url === '/') 
 	{
 		console.log('The GET request is as expected:' + request.url);
 		myResponse.data = htmlFile;
+		myResponse.currentResponse = response;
 	}
 	if (request.method === 'POST' && request.url === '/frame') 
 	{
@@ -78,7 +79,13 @@ function handleRequestCB(request, response)
 		request.on('data', handleHttpPostData);
 
 	}
-	myResponse.currentResponse = response;
+	if (request.method === 'POST' && request.url === '/start') 
+	{
+		console.log('The POST request is as expected:' + request.data);
+		myResponse.data = 'Hello This is the response after the posrt!';
+		request.on('data', handleHttpPostData);
+	}
+	
 	doResponse(myResponse.currentResponse);
 	// setTimeout(doResponse, 2, response);
 }

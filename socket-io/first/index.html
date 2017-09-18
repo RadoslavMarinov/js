@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+  </head>
+  <script src="/socket.io/socket.io.js"> </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+  <script>
+    //  
+      var socket = io();
+    //
+      socket.on("dataRes", function(data){
+        console.log(data);
+        $("#firstText").append("<br/>" + data);
+        $("#firstInput").val("");
+      });
+
+    // On internal event, emit socket event
+      $(document).ready(function(){
+        $("button").click(function(){
+          socket.emit("dataReq", $("#firstInput").val());
+        });
+      });
+  </script>
+
+  <input type="text" id="firstInput" name="data">
+  <button>Send</button>
+  <p id="firstText">Hello Riko!</p>
+</html>
