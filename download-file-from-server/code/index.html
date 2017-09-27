@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+<p id="demo"/>
+<h2 id="header2">Hello</h2>
+<button id="ajaxButton">Make a request!</button>
+<button id="download">Download</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#ajaxButton").click(function(){
+			$.get("index1.html", function(data, status){
+				console.log("Data: " + data + "\nStatus: " + status);
+				$("#header2").text(data);
+			});
+		});
+		//==
+		$("#download").click(function(){
+			window.open('http://127.0.0.1/index1.html-download','_blank');
+		});
+		//==
+	});
+</script></body>
+</html>
