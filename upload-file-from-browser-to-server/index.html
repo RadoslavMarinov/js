@@ -1,0 +1,32 @@
+
+<label>File to stash:</label>
+<input type="file" name="file" id="myFile"/>
+<input type="submit" id="submitButton" value="Stash the file!" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+	$('input#submitButton').click( function() {
+		console.log("Alohaa");
+		var file = document.getElementById('myFile').files[0];
+		var fileText = "";
+		if (file) {
+		    // create reader
+		    var reader = new FileReader();
+		    reader.readAsText(file);
+		    reader.onload = function(e) {
+		        // browser completed reading file - display it
+		        fileText = e.target.result;
+				console.log(fileText, typeof fileText == "string");
+			    $.ajax({
+		        	url: '/',
+		        	type: 'POST',
+		        	contentType: "application/json; charset=utf-8",
+		        	dataType: 'json',
+		        	data: fileText
+    			});
+		    };
+		}
+    	
+	});
+
+</script>
