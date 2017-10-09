@@ -7,14 +7,16 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.use(bodyParser.urlencoded());
-app.use(bodyParser.json());
+app.use(bodyParser.text());
 
 app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/index.html');
 });
 
 app.post('/', function(request, response){
-  console.log(request.body);      // your JSON
+	var postObj = JSON.parse(request.body);
+	// postObj = JSON.parse(request.body)
+  	console.log(postObj);      // your JSON
 });
 
 app.listen(80);
