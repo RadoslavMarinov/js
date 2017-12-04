@@ -22,7 +22,8 @@ function w(str)
   });
 }
 
-port.on('data', function(Buffer)
+port
+.on('data', function(Buffer)
 {
 	console.log(Buffer);
 });
