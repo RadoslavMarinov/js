@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div id="app-div" ng-app="myApp" ng-controller="myCtrl">
+  <p>Name : <input type="text" ng-model="name"></p>
+  <button ng-click="append()">Apped</button>
+  <button ng-click="delete()">Delete</button>
+  <h1 id="divID">{{name}}</h1>
+</div>
+
+<script>
+	var app = angular.module("myApp",[]);
+	app.controller("myCtrl", function($scope)
+	{
+		$scope.name = "RIKO";
+		$scope.append = function()
+		{
+			$scope.name += "+";
+			console.log( document.querySelector( '#divID' ) );
+			var myEl = angular.element( document.querySelector( '#divID' ) );
+			myEl.append('<p>' + $scope.name + '</p>');		
+		}
+		$scope.prepend = function()
+		{
+			var myEl = angular.element( document.querySelector( '#divID' ) );
+			myEl.prepend('<p>{{name}}<br/></p>');		
+		}
+		var parentElement = document.querySelector("#divID");
+		$scope.delete = function()
+		{
+			console.log(parentElement)
+			parentElement.removeChild(parentElement.lastChild);
+		}
+	});
+
+</script>
+
+</body>
+</html>

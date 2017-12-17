@@ -1,0 +1,48 @@
+
+<html>
+    <head>
+        <title>React Hello World</title>
+        <script src="https://unpkg.com/react@15/dist/react.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"><p>Riko </p></div>
+
+        <script type="text/babel">
+            window.onload = function()
+            {
+            	class App extends React.Component {
+            		render() 
+            		{
+            			return (
+            				<div>
+            					<p>This is input text</p>
+            					<input type="text"></input>
+            				</div>
+            			);
+            		}
+            	}
+
+
+				ReactDOM.render(
+					<App />,
+					// React.createElement("p", null, "RIkooo"),
+					document.getElementById('root')
+				);                // class Greetings extends React.Component
+                // {
+                //     render()
+                //     {
+                //         return React.createElement('h1', null, 'Greetings, ' + this.props.name + '! ' + 'The age is: ' + this.props.age);
+                //     }
+                // }
+                // ReactDOM.render(
+                //     React.createElement(Greetings, { name : 'Chris', age : 29}),
+                //     document.getElementById('root')
+                // );
+            };
+        </script>
+    </body>
+</html>
+
+<!-- Load Babel -->
