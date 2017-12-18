@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+	<h1>This is a Heading</h1>
+<div ng-app="tableApp" ng-controller="tableController">
+	<table id="example" class="display" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th align="left">Name</th>
+				<th align="left">Age</th>
+				<th align="left">Location</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><input type="text" ng-model="name" name="row-1-name" id="row-1-name"></td>
+				<td><input ng-model="age" type="text" name="row-1-age" id="row-1-age"></td>
+				<td><input ng-model="location" type="text" name="row-1-location" id="row-1-location"></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>Result: {{name}} is {{age}} old and comes from {{location}} </p>
+</div>
+<script type="text/javascript">
+	var app = angular.module("tableApp", []);
+	app.controller("tableController", function($scope)
+	{
+	// 	$scope.name = "Riko";
+	// 	$scope.age = 29;
+		$scope.location = "Rudozem";
+	});
+</script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp">
+
+	First Name: <input type="text" ng-model="firstName"><br>
+	Last Name: <input type="text" ng-model="lastName"><br>
+	<p>Full Name: {{firstName + " " + lastName}}</p>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+// app.controller('myCtrl', function($scope) {
+//     $scope.firstName = "John";
+//     $scope.lastName = "Doe";
+// });
+</script>
+
+</body>
+</html> -->

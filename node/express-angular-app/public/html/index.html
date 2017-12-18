@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/controllers/add-row-controller.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<head>
+	<title>Angular App</title>	
+</head>
+<body ng-app="myApp">
+	<h1 id="the-header">Angular tutorial app</h1>
+	<div ng-controller="tableController">
+		<button id="add-row" ng-click="addRow()">Add Row</button>
+	</div>
+	<script type="text/javascript">
+		var app = angular.module("myApp", [])
+
+		app.controller("tableController", function ($scope) {
+			$scope.addRow = function () {
+				$("#the-header").append("<h2>This is appended header 2 </h2>");
+			}
+		})
+	</script>
+</body>
+</html>

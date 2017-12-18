@@ -33,10 +33,10 @@ $(document).ready(function() {
 	})
 
 	$("#request-json").click(function() {
-		$.get( "/json-data", function( data ) {
+		$.get("/json-data", {json_data: "JSON Data String"}, function( data ) {
   			$( "p" ).html( data );
   			alert( "Load was performed." );
-		});
+		}, "json");
 	})
 
 	$("#request-any").click(function() {
