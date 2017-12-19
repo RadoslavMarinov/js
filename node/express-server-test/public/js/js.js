@@ -32,7 +32,7 @@ $(document).ready(function() {
 		console.log(JSON.stringify(obj, undefined, 5))	
 	})
 
-	$("#post-json").click(function() {
+	$("#post-json-data").click(function() {
 		 $.ajax({
 		   url: "/json-data",
 		   type: 'POST',
@@ -56,11 +56,11 @@ $(document).ready(function() {
 		 });
 	})
 
-	$("#request-any").click(function() {
-		$.get( "/any", function( data ) {
+	$("#get-json-data").click(function() {
+		$.get("/data-json", function( data ) {
   			$( "p" ).html( data );
-  			alert( "Load was performed." );
 		});
+		console.log("Request to server made, url: /data-json")
 	})
 	
 })
