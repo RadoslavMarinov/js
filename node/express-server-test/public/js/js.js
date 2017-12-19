@@ -32,11 +32,28 @@ $(document).ready(function() {
 		console.log(JSON.stringify(obj, undefined, 5))	
 	})
 
-	$("#request-json").click(function() {
-		$.get( "/json-data", function( data ) {
-  			$( "p" ).html( data );
-  			alert( "Load was performed." );
-		});
+	$("#post-json").click(function() {
+		 $.ajax({
+		   url: "/json-data",
+		   type: 'POST',
+		   contentType:'application/json',
+		   data: JSON.stringify(obj),
+		   success: function(data){
+		     	//On ajax success do this
+		     	console.log("Success: " + data);
+		      },
+		   error: function(xhr, ajaxOptions, thrownError) {
+		      //On error do this
+		        if (xhr.status == 200) {
+
+		            alert(ajaxOptions);
+		        }
+		        else {
+		            alert(xhr.status);
+		            alert(thrownError);
+		        }
+		    }
+		 });
 	})
 
 	$("#request-any").click(function() {
