@@ -34,8 +34,13 @@ app.post("/json-data", function(req, res) {
 	res.send("Response at json-data request")
 })
 //==
+app.get("/new-html", function(req, res){
+	console.log("Request /new-html");
+	res.sendFile(__dirname + "/public/html/new.html");
+})
+//==
 app.get("*", function(req, res) {
-	console.log("Any request" + req);
+	console.log("Any request" + req.url);
 	res.send("Response ant any request")
 })
 //==

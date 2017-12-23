@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 	
-	var tableRow = "<tr><td><input type='text'/></td><td><input type='text'/></td></tr>"
+	var tableRow = "<tr class='inputrow'><td><input type='text'/></td><td><input type='text'/></td></tr>"
 	var obj = {};
 	const ROWNO = 2;
 
@@ -12,6 +12,12 @@ $(document).ready(function() {
 	});
 
 	$("#show-object").click(function() {
+		
+		$("p").text(JSON.stringify(obj, undefined, 5));
+		console.log(JSON.stringify(obj, undefined, 5))	
+	})
+
+	$("#post-json-data").click(function() {
 		$("input").each(function(index) {
 			var rowno = parseInt(index / ROWNO);
 			var columnno = (index % 2); 
@@ -28,21 +34,16 @@ $(document).ready(function() {
 					break;
 			}
 		})
-		$("p").text(JSON.stringify(obj, undefined, 5));
-		console.log(JSON.stringify(obj, undefined, 5))	
-	})
-
-	$("#post-json-data").click(function() {
-		 $.ajax({
-		   url: "/json-data",
-		   type: 'POST',
-		   contentType:'application/json',
-		   data: JSON.stringify(obj),
-		   success: function(data){
-		     	//On ajax success do this
-		     	console.log("Success: " + data);
-		      },
-		   error: function(xhr, ajaxOptions, thrownError) {
+		$.ajax({
+		   	url: "/json-data",
+		    type: 'POST',
+		    contentType:'application/json',
+		    data: JSON.stringify(obj),
+		    success: function(data){
+		      	//On ajax success do this
+		      	console.log("Success: " + data);
+		       },
+		    error: function(xhr, ajaxOptions, thrownError) {
 		      //On error do this
 		        if (xhr.status == 200) {
 
@@ -59,9 +60,24 @@ $(document).ready(function() {
 	$("#get-json-data").click(function() {
 		$.get("/data-json", function( data ) {
   			$( "p" ).html( data );
+  			dataObj = JSON.parse(data)
+  			if($(".inputrow").length)
+  			{
+  				console.log("Inout Row #" + $(".inputrow").length)
+  				$(".inputrow").remove();
+  			}
+  			for(row in dataObj)
+  			{
+  				console.log(dataObj[row])
+  				$("table").append("<tr class='inputrow'>" + "<td>" + "<input type='text' value='" +
+  				 dataObj[row].Name + "'>" + "</td>" + "<td>" + "<input type='text' value='" + dataObj[row].Age + "'>" + "</td>" + "</tr>")
+  			}
 		});
 		console.log("Request to server made, url: /data-json")
 	})
 	
+	$("#load-html").click(function() {
+		window.location.href = 'http://localhost/new-html'
+	})
 })
 
