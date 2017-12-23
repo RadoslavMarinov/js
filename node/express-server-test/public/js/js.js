@@ -32,18 +32,43 @@ $(document).ready(function() {
 		console.log(JSON.stringify(obj, undefined, 5))	
 	})
 
+<<<<<<< HEAD
 	$("#request-json").click(function() {
 		$.get("/json-data", {json_data: "JSON Data String"}, function( data ) {
   			$( "p" ).html( data );
   			alert( "Load was performed." );
 		}, "json");
+=======
+	$("#post-json-data").click(function() {
+		 $.ajax({
+		   url: "/json-data",
+		   type: 'POST',
+		   contentType:'application/json',
+		   data: JSON.stringify(obj),
+		   success: function(data){
+		     	//On ajax success do this
+		     	console.log("Success: " + data);
+		      },
+		   error: function(xhr, ajaxOptions, thrownError) {
+		      //On error do this
+		        if (xhr.status == 200) {
+
+		            alert(ajaxOptions);
+		        }
+		        else {
+		            alert(xhr.status);
+		            alert(thrownError);
+		        }
+		    }
+		 });
+>>>>>>> 656ebad95e3b649484f563d9f0f290437c639571
 	})
 
-	$("#request-any").click(function() {
-		$.get( "/any", function( data ) {
+	$("#get-json-data").click(function() {
+		$.get("/data-json", function( data ) {
   			$( "p" ).html( data );
-  			alert( "Load was performed." );
 		});
+		console.log("Request to server made, url: /data-json")
 	})
 	
 })
