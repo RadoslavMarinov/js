@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/controllers/add-row-controller.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<head>
+	<title>Home Electricity Manager</title>	
+</head>
+<body ng-app="myApp">
+	<h1 id="the-header">Wellcome to home electricity manager!</h1>
+	<div add-row ng-controller="myController">
+		<button ng-class="myStyle" ng-click="toggleRelay()" id="switch-cirquit-1">{{ButtonStatus}}</button>
+	</div>
+	<style type="text/css">
+		.greenbutton {
+    		background-color: lightgreen;
+    		width: 50px;
+		}
+		.redbutton {
+			background-color: orange;
+			width: 50px;
+		}
+
+	</style>
+	<script type="text/javascript">
+		var app = angular.module("myApp", [])
+
+		app.controller("myController", function($scope) {
+			$scope.ButtonStatus  = "OFF";
+			$scope.myStyle = 'greenbutton'  //{'background-color':'#00FF00', 'font-size': '24px', 'width': '80px'}
+			$scope.toggleRelay = function(){
+				if($scope.ButtonStatus == "OFF")
+				{
+					console.log("ON")
+					$scope.ButtonStatus = "ON"
+					$scope.myStyle = 'redbutton'	
+				}
+				else
+				{
+					console.log("OFF")
+					$scope.ButtonStatus = "OFF"
+					$scope.myStyle = 'greenbutton'	
+				}
+
+				// c $scope.ButtonStatus == "OFF" ? "ON" : "OFF";  
+				// console.log($scope.myStyle["background-color"])
+				// if($scope.myStyle["background-color"] == '#00FF00')
+				// {
+				// 	console.log("True")
+				// 	// $scope.myStyle = {'background-color':'#FF0000'}
+				// 	$scope.myStyle['background-color'] = '#FF0000';
+				// }
+				// $scope.myStyle["background-color"] = $scope.myStyle["background-color"] == '#00FF00' ? '#FF0000' : '#00FF00' 
+			}
+		})
+
+		app.directive("addRow", function() {
+				return {
+					restrict: 'EA',
+					link: function($scope, el, attr) {
+						console.log(el)
+						angEl = angular.element(el[0].querySelector("#add-row"));
+						angEl.bind("click", function() {
+							$("#the-header").append("<h2>This is appended header 2 </h2>");
+						})
+					}
+			};	
+		});
+	</script>
+</body>
+</html>
+
+ <!-- src="js/directives/add-row.js" -->

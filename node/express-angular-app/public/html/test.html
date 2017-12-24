@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Demo</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+
+	</head>
+<body>
+<style>
+    .bold {
+        font-weight:bold;
+    }
+    .italic {
+        font-style:italic;
+    }
+    .oblic{
+        font-style:oblique;
+    }
+    .underline{
+       text-decoration:underline;
+    }
+    .overline{
+        text-decoration:overline;
+    }
+</style>
+<script>
+    var app = angular.module("app", []);
+    app.controller("ClassController", function ($scope) {
+        $scope.classBold = '';
+        $scope.classUnderline = '';
+
+        $scope.MakeBold = function () {
+            if ($scope.classBold.length == 0) {
+                $scope.classBold = 'bold';
+            } else {
+                $scope.classBold = '';
+            }
+        };
+
+        $scope.MakeUnderline = function () {
+            if ($scope.classUnderline.length == 0) {
+                $scope.classUnderline = 'underline';
+            } else {
+                $scope.classUnderline = '';
+            }
+        };
+    });
+
+</script>
+<div ng-app="app" ng-controller="ClassController">
+    <p ng-class="SpaceDelimitedClass">Write the class name to apply</p>
+    <input type="text" ng-model="SpaceDelimitedClass" placeholder="bold italic overline" />
+
+    <hr />
+    <p ng-class="{bold : makeBold, italic : makeItalic, overline : makeOverline}">Apply below style</p>
+    <label><input type="checkbox" ng-model="makeBold" />Bold</label>
+    <label><input type="checkbox" ng-model="makeItalic" />Italic</label>
+    <label><input type="checkbox" ng-model="makeOverline" />Overline</label>
+
+    <hr />
+    <p ng-class="[classBold, classUnderline]">Apply Below Class</p>
+    <button ng-click="MakeBold()">Make Bold</button>
+    <button ng-click="MakeUnderline()">Make Underline</button>
+
+    <hr />
+    <p ng-class="[MyStyle, {overline : setIt}]">Write or Apply CSS Class</p>
+    <input type="text" ng-model="MyStyle" placeholder="bold or italic or oblic" />
+    <label><input type="checkbox" ng-model="setIt" />Overline</label>
+</div>
+</body>
+</html>
