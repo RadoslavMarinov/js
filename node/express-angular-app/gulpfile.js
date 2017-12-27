@@ -14,7 +14,7 @@ gulp.task("copyHtml", function() {
 
 // Uglify and Concat All JS Files
 gulp.task('concat', function() {
-	gulp.src(['public/js/css-objects/*.js', 'public/js/controllers/*.js'])
+	gulp.src(['public/js/css-objects/*.js', 'public/js/controllers/apps/*.js', 'public/js/controllers/*.js', ])
 		.pipe(concat('main.js'))
 		.pipe(gulp.dest('dist/js'));
 })
@@ -25,5 +25,6 @@ gulp.task('default', ['message', 'copyHtml', 'concat'])
 gulp.task('watch', function() {
 	gulp.watch('public/js/controllers/*.js', ['concat']);
 	gulp.watch('public/js/css-objects/*.js', ['concat']);
+	gulp.watch('public/js/controllers/apps/*.js', ['concat']);
 	gulp.watch('public/html/*.html', ['copyHtml']);
 })

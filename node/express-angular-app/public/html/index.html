@@ -13,8 +13,11 @@
 		<button id="first-button" ng-style="myStyle" ng-click="toggleRelay()" id="switch-cirquit-1">{{ButtonStatus}}</button>
 	</div>
 	<div add-row ng-controller="myController" style="text-align: center; display: inline-block;">	
-		<span id="second-button" style="white-space:pre;">Button text</span><br/>
+		<span id="second-button" style="white-space:pre;">{{buttonOneText}}</span><br/>
 		<button ng-style="myStyle" ng-click="toggleRelay()" id="switch-cirquit-1">{{ButtonStatus}}</button>
+	</div>
+	<div ng-controller="postController" style="text-align: center; display: inline-block;">
+		<button ng-click="post()">{{buttonName}}</button>
 	</div>
 </body>
 </html>
