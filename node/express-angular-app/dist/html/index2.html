@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html><head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<title riko-men="6">FUCKITTT</title>	
+</head>
+<body ng-app="myApp">
+	<h1 id="the-header">Wellcome to home electricity manager!</h1>
+	<div add-row="" ng-controller="myController" style="text-align: center; display: inline-block;">
+		<span style="white-space:pre;">Button text</span><br>
+		<button id="first-button" ng-style="myStyle" ng-click="toggleRelay()">{{ButtonStatus}}</button>
+	</div>
+	<div add-row="" ng-controller="myController" style="text-align: center; display: inline-block;">	
+		<span id="second-button" style="white-space:pre;">{{buttonOneText}}</span><br>
+		<button ng-style="myStyle" ng-click="toggleRelay()" id="switch-cirquit-1">{{ButtonStatus}}</button>
+	</div>
+	<div ng-controller="postController" style="text-align: center; display: inline-block;">
+		<button ng-click="post()">{{buttonName}}</button>
+	</div>
+
+
+</body></html>

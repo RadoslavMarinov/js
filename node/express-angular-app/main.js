@@ -1,6 +1,33 @@
 const express = require('express')
 const app = express()
 var bodyParser = require('body-parser')
+//== JSDOM
+//requeres file system
+var fs = require('fs')
+var htmlSource = fs.readFileSync("public/html/index.html", "utf8")
+var jsdom = require('jsdom');
+const {JSDOM} = jsdom;
+const dom = new JSDOM(htmlSource);
+var q = dom.window.document.querySelector.bind(dom.window.document);
+q("title").innerHTML = "FUCKITTT";
+q("title").setAttribute('riko-Men', '6')
+htmlSource = dom.window.document.querySelector("html").outerHTML
+var serialized = dom.serialize()
+console.log(serialized)
+
+
+fs.writeFileSync("public/html/index2.html", '<!DOCTYPE html>\n' + serialized, "utf8");
+
+
+
+
+
+
+
+
+
+
+
 
 app.use( bodyParser.json() );  
 app.use(express.static(__dirname + "/dist"))
@@ -15,4 +42,4 @@ app.post("/html-params.json", function(req, res) {
 	res.send("Post Accepted!")
 })
 
-app.listen(80, () => console.log('Example app listening on port 80!'))
+app.listen(8080, () => console.log('Example app listening on port 8080!'))
