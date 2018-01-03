@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html><html><head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<title>Home Electricity Manager</title>	
+	<title>Home Electricity Manager </title>	
 </head>
 <body ng-app="myApp">
-	<h1 id="the-header">Wellcome to home electricity manager!</h1>
-	<div add-row ng-controller="myController" style="text-align: center; display: inline-block;">
-		<span style="white-space:pre;">Button text</span><br/>
-		<button id="first-button" ng-style="myStyle" ng-click="toggleRelay()" id="switch-cirquit-1">{{ButtonStatus}}</button>
-	</div>
-	<div add-row ng-controller="myController" style="text-align: center; display: inline-block;">	
-		<span id="second-button" style="white-space:pre;">{{buttonOneText}}</span><br/>
+	<h1 id="the-header">Wellcome to home electricity manager radoslav.k.marinov@gmail.com!</h1>
+	<div id="button-1-div" add-row="" ng-controller="myController" style="text-align: center; display: inline-block;">
+		<span id="first-button" ng-click="changeText('button-1-div')" style="white-space:pre;">AAA</span><br>
 		<button ng-style="myStyle" ng-click="toggleRelay()" id="switch-cirquit-1">{{ButtonStatus}}</button>
-	</div>
-	<div ng-controller="postController" style="text-align: center; display: inline-block;">
-		<button ng-click="post()">{{buttonName}}</button>
-	</div>
-</body>
-</html>
+	</div><br>
+	<div id="button-2-div" add-row="" ng-controller="myController" style="text-align: center; display: inline-block;">	
+		<span id="second-button" ng-click="changeText('button-2-div')" style="white-space:pre;">BBB</span><br>
+		<button ng-style="myStyle" ng-click="toggleRelay()" id="switch-cirquit-2">{{ButtonStatus}}</button>
+	</div><br>
+</body></html>

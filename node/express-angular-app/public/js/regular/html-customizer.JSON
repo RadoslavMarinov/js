@@ -1,0 +1,18 @@
+{
+  "pages": {
+    "home": {
+      "objects": [
+        {
+          "type": "span",
+          "id": "first-button",
+          "text": "AAA"
+        },
+        {
+          "type": "span",
+          "id": "second-button",
+          "text": "BBB"
+        }
+      ]
+    }
+  }
+}
