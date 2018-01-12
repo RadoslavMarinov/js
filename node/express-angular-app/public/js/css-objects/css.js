@@ -1,3 +1,4 @@
+/* public/js/css-objects ******************************************/
 buttonGreen = {
 	'background-color': 'lightgreen',
 	'width': '100px',

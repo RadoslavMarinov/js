@@ -6,12 +6,12 @@
 </head>
 <body ng-app="myApp">
 	<h1 id="the-header">Wellcome to home electricity manager radoslav.k.marinov@gmail.com!</h1>
-	<div id="button-1-div" add-row="" ng-controller="myController" style="text-align: center; display: inline-block;">
-		<span id="first-button" ng-click="changeText('button-1-div')" style="white-space:pre;">AAA</span><br>
-		<button ng-style="myStyle" ng-click="toggleRelay()" id="switch-cirquit-1">{{ButtonStatus}}</button>
+	<div id="button-1-div" ng-controller="myController" order="1" style="text-align: center; display: inline-block;" ng-init="spanText=S4555">
+		<span id="button-1-span-1" ng-click="changeText()" style="white-space:pre;">{{spanText}}</span><br>
+		<button id="butt-1" ng-style="myStyle" ng-click="toggleRelay()">{{ButtonStatus}}</button>
 	</div><br>
-	<div id="button-2-div" add-row="" ng-controller="myController" style="text-align: center; display: inline-block;">	
-		<span id="second-button" ng-click="changeText('button-2-div')" style="white-space:pre;">BBB</span><br>
-		<button ng-style="myStyle" ng-click="toggleRelay()" id="switch-cirquit-2">{{ButtonStatus}}</button>
+	<div id="button-2-div" ng-controller="myController" style="text-align: center; display: inline-block;">	
+		<span id="button-2-span-2" ng-click="changeText()" style="white-space:pre;">{{spanText}}</span><br>
+		<button id="butt-2" ng-style="myStyle" ng-click="toggleRelay()">{{ButtonStatus}}</button>
 	</div><br>
 </body></html>

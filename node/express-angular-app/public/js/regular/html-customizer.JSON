@@ -4,13 +4,23 @@
       "objects": [
         {
           "type": "span",
-          "id": "first-button",
-          "text": "AAA"
+          "id": "button-1-span-1",
+          "text": "313131321321122222"
+        },
+        {
+          "type": "button",
+          "id": "butt-1",
+          "text": "OFF"
         },
         {
           "type": "span",
-          "id": "second-button",
-          "text": "BBB"
+          "id": "button-2-span-2",
+          "text": "122113131321232131"
+        },
+        {
+          "type": "button",
+          "id": "butt-2",
+          "text": "ON"
         }
       ]
     }

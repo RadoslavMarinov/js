@@ -12,13 +12,10 @@ angular.module("myApp").controller("postController", function($scope, $http) {
 								'Content-Type': 'application/json'
 							}
 						};
-		$http.post(url, postData, congig).then(
+		$http.get("/json").then(
 			function(res) { //Success
 				console.log(res.data)
 			},
-			function(res) {	// Failed
-
-			}
 		)
 	}
 })
